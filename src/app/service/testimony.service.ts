@@ -4,7 +4,7 @@ import { GooglesheetService } from './googlesheet.service';
 @Injectable({
   providedIn: 'root'
 })
-export class TestimonyService extends BasesheetService{
+export class TestimonyService{
 
 	sheetname = "testimony";
 
