@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { TestimonyService } from "../../../service/testimony.service";
 
 @Component({
   selector: 'app-testimony',
@@ -7,9 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TestimonyComponent implements OnInit {
 
-  constructor() { }
+	data:any
+
+  constructor(
+  	public testimonyService:TestimonyService
+  ) { }
 
   ngOnInit() {
+  	this.testimonyService.getSheet().subscribe(response => {
+      this.data = JSON.stringify(response.values, null, 2);
+    })
   }
 
 }

@@ -1,3 +1,4 @@
-<p>
-  home-admin works!
-</p>
+<app-login-admin *ngIf="requiresLogin()"></app-login-admin>
+<div *ngIf="!requiresLogin()">
+	<pre class = "json-block"> {{ json }} </pre>
+</div>

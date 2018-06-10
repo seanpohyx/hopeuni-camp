@@ -1,1 +1,13 @@
 /* You can add global styles to this file, and also import other style files */
+* {
+	font-family: Helvetica, Arial, sans-serif;
+}
+
+.json-block {
+	padding: 30px;
+	width: 500px;
+	font-family: 'Courier New';
+	background-color: #EEE;
+	overflow-x: scroll;
+	border-radius: 10px;
+}

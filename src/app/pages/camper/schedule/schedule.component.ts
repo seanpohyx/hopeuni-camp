@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ScheduleService } from "../../../service/schedule.service";
 
 @Component({
   selector: 'app-schedule',
@@ -7,9 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ScheduleComponent implements OnInit {
 
-  constructor() { }
+	data:any;
+
+  constructor(
+  	public scheduleService:ScheduleService
+  ) { }
 
   ngOnInit() {
+  	this.scheduleService.getSheet().subscribe(response => {
+      this.data = JSON.stringify(response.values, null, 2);
+    })
   }
 
 }

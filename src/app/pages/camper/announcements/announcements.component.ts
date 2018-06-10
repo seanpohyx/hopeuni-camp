@@ -8,14 +8,16 @@ import { AnnouncementsService } from "../../../service/announcements.service";
 })
 export class AnnouncementsComponent implements OnInit {
 
+  data:any;
+
   constructor(
-  	public annoService:AnnouncementsService
+    public annoService:AnnouncementsService
   ) { }
 
   ngOnInit() {
-  	this.annoService.getSheet().subscribe(response => {
-  		console.log(response);
-  	})
+    this.annoService.getSheet().subscribe(response => {
+      this.data = JSON.stringify(response.values, null, 2);
+    })
   }
 
 }
