@@ -1,4 +1,4 @@
 <app-login-admin *ngIf="requiresLogin()"></app-login-admin>
 <div *ngIf="!requiresLogin()">
-	<pre class = "json-block"> {{ json }} </pre>
+	<app-announcements-admin></app-announcements-admin>
 </div>

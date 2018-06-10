@@ -17,6 +17,7 @@ import { TestimonyAdminComponent } from './pages/admin/testimony-admin/testimony
 import { HomeComponent } from './pages/camper/home/home.component';
 import { HomeAdminComponent } from './pages/admin/home-admin/home-admin.component';
 import { LoginAdminComponent } from './pages/admin/login-admin/login-admin.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import { LoginAdminComponent } from './pages/admin/login-admin/login-admin.compo
     AppRoutingModule,
     
     // Import HttpClientModule
-    HttpClientModule
+    HttpClientModule,
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
