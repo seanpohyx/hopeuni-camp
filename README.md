@@ -2,11 +2,19 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.0.5.
 
-## Development server
+## Installation
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Hey there! So if you're brand new and am not sure how to set it up, or what to do, feel free to ask! I am more than willing to help, but generally this should be the few steps you need to take to set up this project 
 
-## Code scaffolding
+1. clone this 
+  - `git clone https://github.com/jeremiah-ang/hopeuni-camp/`
+2. Install npm dependencies 
+  - `npm install`
+3. Serve it 
+  - `ng serve`
+4. View it in browser by going to `http://localhost:4200`
+
+## Creating components/services
 
 Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
 
@@ -48,6 +56,8 @@ We are no experts in this, but if you think you see potential in how this can co
 - Front-end developer
 	- Task: You and another developer will develop the front-facing part of the website
 	- Skillset: We don't currently have a framework we are dead fixed on, so I guess you just need to know html, css and javascript
+  
+I have created some issues that we have that needs to be fixed, maybe you can start by looking at what you think you can do? :) Once you have done something and you want me to check it out, just make a pull request and I will review it :)
 	
 ## Tech Stack
 
