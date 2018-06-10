@@ -1,6 +1,10 @@
 # HopeuniCamp
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.0.5.
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.0.5. 
+
+A web platform to hopefully ease the communication between campers and the camp committee. With features for users to view and retrieve important information/announcement about the camp or their personal information regarding the camp (i.e. games group or workshop details), and also features for camp committees to easily update and diseminate important informations. 
+
+I'm by no means a pro in web development or anything, but I am willing to teach and guide anyone who has interest in this. All I'm looking for is people who want to use their talents to serve God in some ways but have never been able to find a channel to really live out their talents. This is by no means graded nor are we looking at developing a ground breaking application, so come and hopefully we can create a space where people can find ways to serve God with their talents.
 
 ## Installation
 
@@ -26,9 +30,6 @@ Run `ng build` to build the project. The build artifacts will be stored in the `
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
 
-## About
-A web platform to hopefully ease the communication between campers and the camp committee. With features for users to view and retrieve important information/announcement about the camp or their personal information regarding the camp (i.e. games group or workshop details), and also features for camp committees to easily update and diseminate important informations. 
-
 ## Demo Website 
 
 We are working on it to give the camp committee a solid preview of how they can work with the system, but right now all I can provide is a detailed list of the features.
@@ -50,12 +51,8 @@ We are working on it to give the camp committee a solid preview of how they can 
 We are no experts in this, but if you think you see potential in how this can contribute to the camp and really want to contribute to the application just let us know :) Below is a few ways I think you can contribute in. 
 
 - Web designer
-	- Task: The designer will design the `look and feel` and also the `user experience` of the webpage, the design should align with the camp's design.
-	- Skillset: Comfortable with designing web pages and understands the limitations of web pages, coding skill not required but a plus
-	
-- Front-end developer
-	- Task: You and another developer will develop the front-facing part of the website
-	- Skillset: We don't currently have a framework we are dead fixed on, so I guess you just need to know html, css and javascript
+	- Task: You will design and develop the `look and feel` and also the `user experience` of the webpage, the design should align with the camp's design.
+	- Skillset: HTML + CSS + Javascript + Design, we're using angular but we're all pretty new to angular, lets just learn together, if you're a pro in angular, do come and contribute too :)
   
 I have created some issues that we have that needs to be fixed, maybe you can start by looking at what you think you can do? :) Once you have done something and you want me to check it out, just make a pull request and I will review it :)
 	
