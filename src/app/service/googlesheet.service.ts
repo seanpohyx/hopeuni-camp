@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs/Rx';
 
 @Injectable({
@@ -13,6 +13,23 @@ export class GooglesheetService {
   public load(sheetname: string):Observable<any> {
     const url = "https://sheets.googleapis.com/v4/spreadsheets/"+this.SHEET_ID+"/values/"+sheetname+"?key="+this.API_KEY;
     return this.http.get(url);
+  }
+
+  public append(sheetname: string, values: any, access_token: String) {
+    const requestBody = { "values": [values] };
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': 'Bearer ' + access_token
+    });
+    const url = "https://sheets.googleapis.com/v4/spreadsheets/"
+              + this.SHEET_ID 
+              + "/values/" 
+              + sheetname 
+              + ":append"
+              + "?valueInputOption=USER_ENTERED"
+    console.log(url, requestBody, headers);
+    return this.http.post(url, requestBody, { headers });
+
   }
 
   constructor(

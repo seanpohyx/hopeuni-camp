@@ -32,6 +32,10 @@ export class GoogleOAuthService {
     return this.apiEndPoint;
   }
 
+  getAccessToken(): String {
+    return localStorage.getItem("access_token");
+  }
+
   hasOAuth(): boolean {
     return localStorage.getItem("access_token") != null && 
             localStorage.getItem("expires_in") != null &&
@@ -39,6 +43,8 @@ export class GoogleOAuthService {
   }
 
   saveOAuth(params:any): void {
+    console.log("Saving OAuth");
+
     const now = new Date();
     now.setSeconds(+now.getSeconds() + +params.expires_in);
     localStorage.setItem("access_token", params.access_token);
