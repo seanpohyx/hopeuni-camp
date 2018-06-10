@@ -49,7 +49,7 @@ export class GoogleOAuthService {
     now.setSeconds(+now.getSeconds() + +params.expires_in);
     localStorage.setItem("access_token", params.access_token);
     localStorage.setItem("token_type", params.token_type);
-    localStorage.setItem("expires_in", now);
+    localStorage.setItem("expires_in", now.toString());
   }
 
   extractToken(hashString:String): String {

@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { GooglesheetService } from './googlesheet.service';
 import { GoogleOAuthService } from './google-o-auth.service';
+import { Observable } from 'rxjs/Rx';
 
 @Injectable({
   providedIn: 'root'
@@ -21,7 +22,7 @@ export class AnnouncementsService {
 	}
 
   constructor(
-  	public googleSheetService:GooglesheetService
+  	public googleSheetService:GooglesheetService,
   	public googleOAuthService:GoogleOAuthService
   ) {}
 }
