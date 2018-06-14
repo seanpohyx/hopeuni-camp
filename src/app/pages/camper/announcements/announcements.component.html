@@ -1,3 +1,10 @@
-<p>
-  announcements works!
-</p>
+
+
+<div class = 'red-color container separator' >
+		<h2> ANNOUNCEMENTS </h2>
+		<ul>
+			<li *ngFor = "let anno of this.announcementlist">
+				<p>{{anno[0]}}</p>
+			</li>
+		</ul>
+</div>

@@ -1,3 +1,68 @@
-<p>
-  schedule works!
-</p>
+
+
+<div class = 'red-color container separator' >
+		<h2> CAMP SCHEDULE </h2>
+
+		<ul id="timer">
+			<li>
+				<div style="position: relative;">
+					<ul>
+						<li>
+							<div>
+								<h1>1</h1>
+								<p>hours</p>
+							</div>
+						</li>
+						<li>
+							<div>
+								<h1>20</h1>
+								<p>minutes</p>
+							</div>
+						</li>
+						<li>
+							<div>
+								<h1>29</h1>
+								<p>seconds</p>
+							</div>
+						</li>
+					</ul>
+				</div>
+			</li>
+			<li>
+				<p class="margin-top40">
+					Reminder:
+					Bring your IC along!
+				</p>
+			</li>
+		</ul>
+		<ul id="schedule">
+			<li>
+				<h3>{{this.todayDate}}</h3>
+			</li>
+			<li>
+				<table>
+					<tr>
+						<td>
+							<p>Time</p>
+						</td>
+						<td>
+							<p>Schedule</p>
+						</td>
+					</tr>
+					<tr *ngFor = "let schedule of this.schedulelist">
+						<td>
+							<p>{{schedule[2]}} - {{schedule[3]}}</p>
+						</td>
+						<td>
+							<p>{{schedule[0]}}</p>
+						</td>
+					</tr>
+				</table>
+			</li>
+		</ul>
+		<!-- ul>
+			<li *ngFor = "let schedule of this.schedulelist">
+				{{schedule}}
+			</li>
+		</ul> -->
+</div>

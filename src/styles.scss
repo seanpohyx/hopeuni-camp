@@ -1,1 +1,85 @@
 /* You can add global styles to this file, and also import other style files */
+
+$red: #B7374A;
+$black: #7A7A7A;
+$grey: #ABABAB;
+$margin: 80px;
+$margin-sides: 2%;
+$padding: 4px;
+
+
+@font-face {
+    font-family: Doppio;
+    src: url(assets/fonts/DoppioOne-Regular.ttf);
+}
+
+.red-color{color: $red;}
+.margin-top40{margin-top:40px;}
+
+p,h1,h2,h3{
+	font-family:Doppio;
+}
+
+h1{
+	font-size:25pt;
+}
+
+h2{
+	font-size:20pt;
+}
+
+h3{
+	
+	font-size:16pt;
+	padding:10px;
+	margin:0;
+}
+
+p{
+	font-size:13pt;
+}
+
+body{
+	background-image: url("assets/images/background.jpg");
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+li{
+	padding:0;
+	margin:0;
+}
+
+table{
+	width:96%;
+    border-collapse: collapse;
+    padding: 0;
+    margin:0;
+}
+
+td{
+    border: 1px solid $grey;
+    padding: 10px;
+}
+
+.container{
+	margin-left: $margin-sides;
+	padding: 0;
+	width:96%;
+}
+
+.horizontally-center {
+    margin: auto;
+    width: 200px;
+    padding: 10px;
+}
+
+.separator{
+	padding-bottom:$margin;
+	padding-top:20px;
+	border-bottom: solid 1px $red;
+}

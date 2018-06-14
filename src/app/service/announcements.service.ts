@@ -4,9 +4,10 @@ import { GooglesheetService } from './googlesheet.service';
 @Injectable({
   providedIn: 'root'
 })
+
 export class AnnouncementsService {
 
-	sheetname = "announcements";
+	sheetname = "announcements"
 
 	public getSheet() {
 		return this.googleSheetService.load(this.sheetname)

@@ -1,0 +1,47 @@
+$grey: #ABABAB;
+$red: #B7374A;
+
+td:nth-child(1){
+	width: 130px;
+}
+
+#schedule{
+	margin-top:60px;
+}
+#schedule li:nth-child(1){
+	border:solid 1px $grey;
+	text-align:center;
+	width:calc(96% - 3px);
+}
+
+#timer li div ul li{
+	display:inline-block;
+	width:30%;
+	min-width:100px;
+	max-width:200px;
+	height:60px;
+	border: none;
+	padding: 10px 0;
+}
+
+#timer li div ul li:nth-child(2){
+	border-left: solid 1px $red;
+	border-right: solid 1px $red;
+}
+
+#timer li:nth-child(1){
+	text-align:center;
+}
+
+#timer li div li h1{
+	font-size:40pt;
+	padding:0;
+	margin:0;
+}
+
+#timer li div li p{
+	font-size:11pt;
+	padding:0;
+	margin:0;
+}
+
