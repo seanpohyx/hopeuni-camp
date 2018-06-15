@@ -27,7 +27,7 @@ export class ScheduleComponent implements OnInit {
 	  	var scheduleArr = response.values; 
 	  	this.schedulelist = this.getSchedule(scheduleArr);
 
-		interval(1000).subscribe(n =>
+		interval(1000).subscribe(n => {
 			var eventDate = new Date(2018, 6, 20, 8, 0);
 		  	var currentTime = new Date();
 
@@ -35,6 +35,7 @@ export class ScheduleComponent implements OnInit {
 		  	this.hours = Math.floor(countdowntimer/3600);
 		  	this.mins = Math.floor((countdowntimer % 3600)/60);
 		  	this.secs = Math.floor((countdowntimer % 60));
+		  }
 		);
 
 	})
