@@ -1,4 +1,5 @@
-<app-login-admin *ngIf="requiresLogin()"></app-login-admin>
-<div *ngIf="!requiresLogin()">
+<p *ngIf="requiresLogin == null">Loading</p>
+<app-login-admin *ngIf="requiresLogin == true"></app-login-admin>
+<div *ngIf="requiresLogin == false">
 	<app-announcements-admin></app-announcements-admin>
 </div>

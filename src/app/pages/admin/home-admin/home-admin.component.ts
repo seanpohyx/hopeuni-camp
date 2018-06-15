@@ -9,7 +9,8 @@ import { GoogleOAuthService } from '../../../service/google-o-auth.service';
 })
 export class HomeAdminComponent implements OnInit {
 
-  json: String
+  json: String;
+  requiresLogin = null;
 
   constructor(
     public activatedRouter:ActivatedRoute,
@@ -17,13 +18,12 @@ export class HomeAdminComponent implements OnInit {
     public oauth:GoogleOAuthService,
   ) { }
 
-  requiresLogin(): boolean{
-    return !this.oauth.hasOAuth();
+  validateOAuth(){
+    this.requiresLogin = !this.oauth.hasOAuth()
   }
 
   ngOnInit() {
-    const arr = ["hello", "byebye", ["a", "b", {"d" : "Hello"}]]
-    this.json = JSON.stringify(arr, null, 2);
+    this.validateOAuth();
   }
 
 }

@@ -36,10 +36,15 @@ export class GoogleOAuthService {
     return localStorage.getItem("access_token");
   }
 
-  hasOAuth(): boolean {
+  hasOAuth():boolean {
     return localStorage.getItem("access_token") != null && 
-            localStorage.getItem("expires_in") != null &&
-            new Date(localStorage.getItem("expires_in")).getTime() - new Date().getTime() > 0
+          localStorage.getItem("expires_in") != null &&
+          new Date(localStorage.getItem("expires_in")).getTime() - new Date().getTime() > 0;
+  }
+
+  validateOAuth(access_token: String): Observable<any> {
+    const url = "https://www.googleapis.com/oauth2/v3/tokeninfo?access_token=" + access_token;
+    return this.http.get(url)
   }
 
   saveOAuth(params:any): void {
