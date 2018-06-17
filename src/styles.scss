@@ -14,29 +14,29 @@ $padding: 4px;
 }
 
 .red-color{color: $red;}
-.margin-top40{margin-top:40px;}
+.margin-top40{margin-top: 40px;}
 
 p,h1,h2,h3{
-	font-family:Doppio;
+	font-family: Doppio;
 }
 
 h1{
-	font-size:25pt;
+	font-size: 25pt;
 }
 
 h2{
-	font-size:20pt;
+	font-size: 20pt;
 }
 
 h3{
 	
-	font-size:16pt;
-	padding:10px;
-	margin:0;
+	font-size: 16pt;
+	padding: 10px;
+	margin: 0;
 }
 
 p{
-	font-size:13pt;
+	font-size: 13pt;
 }
 
 body{
@@ -50,15 +50,15 @@ ul {
 }
 
 li{
-	padding:0;
-	margin:0;
+	padding: 0;
+	margin: 0;
 }
 
 table{
 	width:96%;
     border-collapse: collapse;
     padding: 0;
-    margin:0;
+    margin: 0;
 }
 
 td{
@@ -69,7 +69,7 @@ td{
 .container{
 	margin-left: $margin-sides;
 	padding: 0;
-	width:96%;
+	width: 96%;
 }
 
 .horizontally-center {
@@ -79,7 +79,7 @@ td{
 }
 
 .separator{
-	padding-bottom:$margin;
-	padding-top:20px;
+	padding-bottom: $margin;
+	padding-top: 20px;
 	border-bottom: solid 1px $red;
 }
