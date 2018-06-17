@@ -19,7 +19,9 @@ export class HomeAdminComponent implements OnInit {
   ) { }
 
   validateOAuth(){
-    this.requiresLogin = !this.oauth.hasOAuth()
+    if(!this.oauth.hasOAuth()) {
+      this.router.navigate(["/admin/login"]);
+    }
   }
 
   ngOnInit() {

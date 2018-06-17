@@ -9,8 +9,7 @@ import { HttpClient } from '@angular/common/http';
 export class GoogleOAuthService {
   endpoint = "https://accounts.google.com/o/oauth2/v2/auth";
   clientId = "947394714759-dfj9erkpjkc7ovptjs177gmlpfb0nb1d.apps.googleusercontent.com";
-  clientSecret = "_zSNCEfA16GkLs92_-0Gor9x";
-  redirectUri = "http://localhost:4200/admin";
+  redirectUri = "http://localhost:4200/admin/redirect";
   responseType = "token";
   scopes = Array.prototype.join.call([
     "https://www.googleapis.com/auth/spreadsheets"
@@ -47,6 +46,13 @@ export class GoogleOAuthService {
     return this.http.get(url)
   }
 
+  isValidAccessToken(params:any): boolean {
+    return (params != null &&
+            params.access_token != null &&
+            params.expires_in != null &&
+            params.token_type != null)
+  }
+
   saveOAuth(params:any): void {
     console.log("Saving OAuth");
 
@@ -55,16 +61,6 @@ export class GoogleOAuthService {
     localStorage.setItem("access_token", params.access_token);
     localStorage.setItem("token_type", params.token_type);
     localStorage.setItem("expires_in", now.toString());
-  }
-
-  extractToken(hashString:String): String {
-    const params = {}
-    hashString.substr(1).split("&").map((parts) => {
-      const keyValue = parts.split("=");
-      params[keyValue[0]] = keyValue[1];
-    })
-    this.saveOAuth(params);
-    return params['access_token'];
   }
 
 

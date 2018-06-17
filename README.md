@@ -61,6 +61,7 @@ I have created some issues that we have that needs to be fixed, maybe you can st
 - Angular 6
 - Hosted on github pages, so all 'backend' process (i.e. validations) will be on client side (LOL) 
 - We'll use google sheet as database
+- Angular Material Design (https://material.angular.io/guide/getting-started)
 
 ## Link to sheet (view-only)
 

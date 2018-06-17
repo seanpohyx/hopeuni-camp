@@ -1,0 +1,5 @@
+<div>
+	<div *ngIf="state == PROCESSING">Processing Access Token...</div>
+	<div *ngIf="state == ERROR">{{ error }}</div>
+	<div *ngIf="state == SUCCESS">Successfully process access token</div>
+</div>
