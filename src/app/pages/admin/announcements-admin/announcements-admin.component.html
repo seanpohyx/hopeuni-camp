@@ -33,9 +33,3 @@
   <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
 
 </table> 
-
-<div>
-  <p> <label> Id </label> <input type='number' #id> </p>
-  <p> <label> Description </label> <input type='text' #description> </p>
-  <p> <button (click)="createAnno(id.value, description.value)"> Create Announcement </button> </p>
-</div>
