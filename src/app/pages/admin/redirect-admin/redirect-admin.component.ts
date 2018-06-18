@@ -35,6 +35,7 @@ export class RedirectAdminComponent implements OnInit {
     const accessToken = this.extrctAccessToken(hashString)
     if (this.oauth.isValidAccessToken(accessToken)) {
       this.state = this.SUCCESS;
+      this.oauth.saveOAuth(accessToken);
       this.route.navigate(["/admin"]);
     } else {
       this.state = this.ERROR;
