@@ -58,8 +58,8 @@ export class ScheduleComponent implements OnInit {
     return latestEntries;
   }
 
-  newEmptyEntry(response) {
-    return newEntry(this.header, ["To be updated", 3, 2359, 2359, "", 0]);
+  newEmptyEntry() {
+    return this.newEntry(this.header, ["To be updated", 3, 2359, 2359, "", 0]);
   }
 
   newEntry(header, response) {
@@ -82,15 +82,15 @@ export class ScheduleComponent implements OnInit {
   }
 
   startCountdown() {
-    const latestEntry = this.entries[0];
+    let latestEntry = this.entries[0];
     let countdownTo = this.newCampDate(latestEntry.day, latestEntry['start time']);
     this.reminderNotes = latestEntry.info;
 
     interval(1000).subscribe(n => {
       var currentTime = new Date();
       if(Math.round((countdownTo.getTime() - currentTime.getTime())/1000) <= 0){
-        eventsArr = this.getNextEvent();
-        countdownTo = eventsArr[0].date;
+        latestEntry = this.getNextEvent();
+        countdownTo = this.newCampDate(latestEntry.day, latestEntry['start time']);
       }
 
       var countdowntimer = Math.round((countdownTo.getTime() - currentTime.getTime())/1000);
@@ -133,24 +133,10 @@ export class ScheduleComponent implements OnInit {
     return new Date(2018, 6,  campDay, hour, minute);
   }
 
-  getNextEvent(){
-    do{
-      eventArr.shift();
-
-      this.reminderNotes = eventArr[0][1];
-      if(eventArr.length === 0){
-        this.reminderNotes = 'To Be Updated';
-        eventArr.push([new Date(2018, 7,  currentTime.getDay(), 23, 59), 'To Be Updated']); // make sure timer doesn't crash
-      }
-
-  } while (Math.round( (eventArr[0][0].getTime() - currentTime.getTime() ) /1000) <= 0)
-    return eventArr;
-  }
-
   getNextEvent() {
     this.entries.shift();
     if (this.entries.length === 0) {
-      this.entries.push(newEmptyEntry());
+      this.entries.push(this.newEmptyEntry());
     }
     this.dataSource = this.entries;
     return this.entries[0];
