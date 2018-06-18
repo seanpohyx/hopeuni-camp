@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CamperInfoService } from "../../../service/camper-info.service";
 
 @Component({
   selector: 'app-camper-info',
@@ -7,9 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CamperInfoComponent implements OnInit {
 
-  constructor() { }
+	data:any;
+
+  constructor(
+  	public camperInfoService:CamperInfoService
+  ) { }
 
   ngOnInit() {
+  	this.camperInfoService.getSheet().subscribe(response => {
+      this.data = JSON.stringify(response.values, null, 2);
+    })
   }
 
 }
