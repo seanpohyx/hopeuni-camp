@@ -7,35 +7,17 @@ import { AnnouncementsService } from "../../../service/announcements.service";
   styleUrls: ['./announcements.component.scss']
 })
 export class AnnouncementsComponent implements OnInit {
-  
-  private announcementlist;
-  
+
+  data:any;
+
   constructor(
-  	public annoService:AnnouncementsService
-  ) {}
+    public annoService:AnnouncementsService
+  ) { }
 
   ngOnInit() {
-
-  	this.annoService.getSheet().subscribe(response => {
-      var annoucementArr = response.values; 
-
-      this.announcementlist = this.getLatest(annoucementArr);
-
-  	})
+    this.annoService.getSheet().subscribe(response => {
+      this.data = JSON.stringify(response.values, null, 2);
+    })
   }
-
-  getLatest(arrList) {
-      var temp = [];
-
-      for (var i = arrList.length-1; i >= 0; i-- ){
-
-        if(temp[arrList[i][1]-1] == undefined )
-          temp[arrList[i][1]-1] = arrList[i];
-      }
-      return temp;
-  }
-
 
 }
-
-

@@ -5,7 +5,7 @@ import { GooglesheetService } from './googlesheet.service';
   providedIn: 'root'
 })
 
-export class TestimonyService{
+export class TestimonyService {
 
 	sheetname = "testimony";
 

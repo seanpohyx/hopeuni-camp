@@ -10,12 +10,11 @@ export class LoginAdminComponent implements OnInit {
 
   constructor(private oauth:GoogleOAuthService) { }
 
-  ngOnInit() {
-  	this.oauth.extractToken(window.location.hash);
-  }
-
   getAuthLink() {
   	return this.oauth.getAuthUrl();
+  }
+
+  ngOnInit() {
   }
 
 }

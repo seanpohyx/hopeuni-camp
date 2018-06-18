@@ -17,13 +17,14 @@ export class HomeAdminComponent implements OnInit {
     public oauth:GoogleOAuthService,
   ) { }
 
-  requiresLogin(): boolean{
-    return !this.oauth.hasOAuth();
+  validateOAuth(){
+    if(!this.oauth.hasOAuth()) {
+      this.router.navigate(["/admin/login"]);
+    }
   }
 
   ngOnInit() {
-    const arr = ["hello", "byebye", ["a", "b", {"d" : "Hello"}]]
-    this.json = JSON.stringify(arr, null, 2);
+    this.validateOAuth();
   }
 
 }
