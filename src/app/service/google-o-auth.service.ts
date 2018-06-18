@@ -55,13 +55,11 @@ export class GoogleOAuthService {
 
   saveOAuth(params:any): void {
     console.log("Saving OAuth");
-
     const now = new Date();
     now.setSeconds(+now.getSeconds() + +params.expires_in);
     localStorage.setItem("access_token", params.access_token);
     localStorage.setItem("token_type", params.token_type);
     localStorage.setItem("expires_in", now.toString());
   }
-
 
 }

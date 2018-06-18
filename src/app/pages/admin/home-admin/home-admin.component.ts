@@ -9,8 +9,7 @@ import { GoogleOAuthService } from '../../../service/google-o-auth.service';
 })
 export class HomeAdminComponent implements OnInit {
 
-  json: String;
-  requiresLogin = null;
+  json: String
 
   constructor(
     public activatedRouter:ActivatedRoute,
