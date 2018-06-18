@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { ScheduleService } from "../../../service/schedule.service";
-import { interval } from 'rxjs';
 
 @Component({
   selector: 'app-schedule',
@@ -8,7 +7,7 @@ import { interval } from 'rxjs';
   styleUrls: ['./schedule.component.scss']
 })
 export class ScheduleComponent implements OnInit {
-	
+
   	private scheduleDisplayDate;
   	private schedulelist;
   	private hours;
@@ -17,8 +16,8 @@ export class ScheduleComponent implements OnInit {
   	private reminderNotes;
 
   constructor(
-  	public schService:ScheduleService
-  	) { }
+  	public scheduleService:ScheduleService
+  ) { }
 
   ngOnInit() {
   	this.schService.getSheet().subscribe(response => {
@@ -118,9 +117,8 @@ export class ScheduleComponent implements OnInit {
   			eventArr.push([new Date(2018, 7,  currentTime.getDay(), 23, 59), 'To Be Updated']); // make sure timer doesn't crash
   		}
 
-	}while (Math.round( (eventArr[0][0].getTime() - currentTime.getTime() ) /1000) <= 0)
-
-	return eventArr;
+	} while (Math.round( (eventArr[0][0].getTime() - currentTime.getTime() ) /1000) <= 0)
+	  return eventArr;
   }
 
 }

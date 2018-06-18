@@ -16,6 +16,12 @@ import { FeedbackAdminComponent } from './pages/admin/feedback-admin/feedback-ad
 import { TestimonyAdminComponent } from './pages/admin/testimony-admin/testimony-admin.component';
 import { HomeComponent } from './pages/camper/home/home.component';
 import { HomeAdminComponent } from './pages/admin/home-admin/home-admin.component';
+import { LoginAdminComponent } from './pages/admin/login-admin/login-admin.component';
+import { FormsModule } from '@angular/forms';
+import { RedirectAdminComponent } from './pages/admin/redirect-admin/redirect-admin.component';
+
+// Material Modules
+import { MatTableModule } from '@angular/material/table';
 
 @NgModule({
   declarations: [
@@ -31,14 +37,20 @@ import { HomeAdminComponent } from './pages/admin/home-admin/home-admin.componen
     FeedbackAdminComponent,
     TestimonyAdminComponent,
     HomeComponent,
-    HomeAdminComponent
+    HomeAdminComponent,
+    LoginAdminComponent,
+    RedirectAdminComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     
     // Import HttpClientModule
-    HttpClientModule
+    HttpClientModule,
+    FormsModule,
+
+    // Material Modules
+    MatTableModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
