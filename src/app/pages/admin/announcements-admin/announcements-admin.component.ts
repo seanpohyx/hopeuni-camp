@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AnnouncementsService } from "../../../service/announcements.service";
-import { MatTableModule } from '@angular/material/table';
+import { AnnouncementEntry } from "../../../model/AnnouncementEntry.model";
 
 @Component({
 	selector: 'app-announcements-admin',
@@ -9,48 +9,56 @@ import { MatTableModule } from '@angular/material/table';
 })
 export class AnnouncementsAdminComponent implements OnInit {
 
-	displayedColumns = ["id", "description", "edit", "delete"];
+	displayedColumns = ["description", "delete"];
 	dataSource = [];
+	limit = 5;
 
 	constructor(
 		public annoService:AnnouncementsService
 	) { }
 
 	ngOnInit() {
-		this.annoService.getSheet().subscribe(this.processResponse.bind(this));
+		this.loadSheet();
+
 	}
 
-	processResponse(response) {
-		const headers = response[0]
-		const latestEntries = [];
-		console.log(response.values);
-		for (let i = response.values.length - 1; i > 0; i--) {
-			const entry = this.processEntry(response.values[i]);
-			const id = entry.id;
-			if (latestEntries[id] == null) {
-				latestEntries[id] = entry
-			}
-		}
-	
-		latestEntries.shift();
-		this.dataSource = latestEntries;
-
-
+	loadSheet() {
+		this.annoService.getLatestEntries(this.limit).subscribe((entries) => {
+			this.dataSource = entries;
+		})
 	}
 
 	processEntry(entry) {
-		return {
-			id: entry[1],
-			description: entry[0]
-		}
+		return AnnouncementEntry.FromSheet(entry);
 	}
 
-
 	createAnno(id, description) {
-		const anno = { id, description };
+		const anno = new AnnouncementEntry(id, description);
 		this.annoService.appendSheet(anno).subscribe(response => {
 			console.log(response);
+			this.loadSheet();
 		});
+	}
+
+	onAdd(description: any) {
+		const nextId = (this.dataSource[0]) ? this.dataSource[0].getId() + 1 : 1;
+		const updates = [new AnnouncementEntry(nextId, description.value)];
+		if (this.dataSource.length == this.limit) {
+			const lastEntry = this.dataSource[this.limit - 1];
+			lastEntry.delete();
+			updates.push(lastEntry);
+		}
+		this.annoService.multiAppendSheet(updates).subscribe(response => {
+			this.loadSheet();
+		})
+	}
+
+	onDelete(entry) {
+		entry.delete();
+		this.annoService.appendSheet(entry).subscribe(response => {
+			console.log(response);
+			this.loadSheet();
+		})
 	}
 
 

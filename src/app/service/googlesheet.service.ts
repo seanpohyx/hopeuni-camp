@@ -16,7 +16,7 @@ export class GooglesheetService {
   }
 
   public append(sheetname: string, values: any, access_token: String) {
-    const requestBody = { "values": [values] };
+    const requestBody = { "values": values };
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',
       'Authorization': 'Bearer ' + access_token

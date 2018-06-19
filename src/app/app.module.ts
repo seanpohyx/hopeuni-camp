@@ -22,6 +22,12 @@ import { RedirectAdminComponent } from './pages/admin/redirect-admin/redirect-ad
 
 // Material Modules
 import { MatTableModule } from '@angular/material/table';
+import { MatButtonModule } from '@angular/material/button';
+import { MatTabsModule } from '@angular/material/tabs';
+import { MatExpansionModule } from '@angular/material/expansion';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
 
 @NgModule({
   declarations: [
@@ -51,6 +57,13 @@ import { MatTableModule } from '@angular/material/table';
 
     // Material Modules
     MatTableModule,
+    MatButtonModule,
+    MatTabsModule,
+    MatExpansionModule,
+    BrowserAnimationsModule,
+    MatFormFieldModule,
+    MatInputModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]
