@@ -18,6 +18,8 @@ import { HomeComponent } from './pages/camper/home/home.component';
 import { HomeAdminComponent } from './pages/admin/home-admin/home-admin.component';
 import { LoginAdminComponent } from './pages/admin/login-admin/login-admin.component';
 import { FormsModule } from '@angular/forms';
+
+import { ScheduleCountdownComponent } from './pages/camper/schedule/schedule-countdown/schedule-countdown.component';
 import { RedirectAdminComponent } from './pages/admin/redirect-admin/redirect-admin.component';
 
 // Material Modules
@@ -28,6 +30,9 @@ import { MatExpansionModule } from '@angular/material/expansion';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+import { MatCardModule } from '@angular/material/card';
+import { MatListModule } from '@angular/material/list';
+import { MatDividerModule } from '@angular/material/divider';
 
 @NgModule({
   declarations: [
@@ -45,7 +50,8 @@ import { MatInputModule } from '@angular/material/input';
     HomeComponent,
     HomeAdminComponent,
     LoginAdminComponent,
-    RedirectAdminComponent
+    RedirectAdminComponent,
+    ScheduleCountdownComponent
   ],
   imports: [
     BrowserModule,
@@ -62,7 +68,10 @@ import { MatInputModule } from '@angular/material/input';
     MatExpansionModule,
     BrowserAnimationsModule,
     MatFormFieldModule,
-    MatInputModule
+    MatInputModule,
+    MatCardModule,
+    MatListModule,
+    MatDividerModule
 
   ],
   providers: [],

@@ -1,5 +1,21 @@
 @import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
 
+$red: #B7374A;
+$white: #FEFEFE;
+
 td.mat-cell, td.mat-footer-cell, th.mat-header-cell {
     padding: 10px !important;
+}
+
+body {
+	margin: 0;
+	padding: 0;
+}
+
+.alert,
+.alert .mat-list .mat-list-item, 
+.alert .mat-nav-list .mat-list-item, 
+.alert .mat-selection-list .mat-list-item {
+	background-color: $red;
+	color: $white !important;
 }
