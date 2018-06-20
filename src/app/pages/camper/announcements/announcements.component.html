@@ -2,7 +2,7 @@
 		<h2> ANNOUNCEMENTS </h2>
 		<ul>
 			<li *ngFor = "let anno of this.announcementlist">
-				<p>{{anno[0]}}</p>
+				<p>{{anno.getDescription()}}</p>
 			</li>
 		</ul>
 </div>

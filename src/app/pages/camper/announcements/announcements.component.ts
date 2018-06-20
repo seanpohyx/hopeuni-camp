@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AnnouncementsService } from "../../../service/announcements.service";
+import { AnnouncementEntry } from "../../../model/AnnouncementEntry.model";
 
 @Component({
   selector: 'app-announcements',
@@ -16,23 +17,9 @@ export class AnnouncementsComponent implements OnInit {
 
   ngOnInit() {
 
-    this.annoService.getSheet().subscribe(response => {
-      var annoucementArr = response.values; 
-
-      this.announcementlist = this.getLatest(annoucementArr);
-
+    this.annoService.getLatestEntries(5).subscribe(response => {
+      this.announcementlist = response;
     })
-  }
-
-  getLatest(arrList) {
-      var temp = [];
-
-      for (var i = arrList.length-1; i >= 0; i-- ){
-
-        if(temp[arrList[i][1]-1] == undefined )
-          temp[arrList[i][1]-1] = arrList[i];
-      }
-      return temp;
   }
 
 
