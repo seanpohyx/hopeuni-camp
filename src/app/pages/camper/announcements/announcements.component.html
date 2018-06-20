@@ -1,3 +1,6 @@
+<div *ngIf="this.displayLoader" class="spinner-container">
+	<div class="loader"></div>
+</div>
 <h1 style="text-align: center"> Announcements </h1>
 <mat-list dense role="list">
   <div *ngFor = "let anno of this.announcementlist">

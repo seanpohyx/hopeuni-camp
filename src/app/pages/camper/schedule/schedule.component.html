@@ -1,3 +1,6 @@
+<div *ngIf="this.displayLoader" class="spinner-container">
+	<div class="loader"></div>
+</div>
 <app-schedule-countdown (expired)="onExpired($event)"></app-schedule-countdown>   
 <table mat-table [dataSource]='dataSource' >
 
@@ -28,5 +31,4 @@
   <!-- Declares what column and what rows to be displayed --> 
   <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
   <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-
 </table> 

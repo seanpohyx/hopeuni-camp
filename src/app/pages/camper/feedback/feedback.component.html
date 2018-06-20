@@ -1,4 +1,7 @@
 <div>
 	<h1> Feedback </h1>
+	<div *ngIf="this.displayLoader" class="spinner-container">
+		<div class="loader"></div>
+	</div>
 	<pre class = "json-block"> {{ data }} </pre>
 </div>

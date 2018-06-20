@@ -11,12 +11,9 @@ import { ScheduleEntry } from '../../../model/ScheduleEntry.model';
 })
 export class ScheduleComponent implements AfterViewInit {
 
-  private scheduleDisplayDate;
   private schedulelist;
-  private hours;
-  private mins;
-  private secs;
-  private reminderNotes;
+  private displayLoader;
+
 
   header: any;
   dataSource: ScheduleEntry[];
@@ -30,10 +27,12 @@ export class ScheduleComponent implements AfterViewInit {
   ) { }
 
   ngAfterViewInit() {
+    this.displayLoader = true;
     this.schService.getLatestEntries().subscribe(response => {
       this.entries = this.sortEntries(response);
       this.dataSource = this.entries;
       this.onExpired(null);
+      this.displayLoader = false;
     })
   }
 
