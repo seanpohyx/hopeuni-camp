@@ -15,6 +15,7 @@ export class ScheduleComponent implements OnInit {
     private mins;
     private secs;
     private reminderNotes;
+    private displayLoader;
 
     header: any;
     dataSource: any;
@@ -28,11 +29,14 @@ export class ScheduleComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+
+    this.displayLoader = true;
     this.schService.getSheet().subscribe(response => {
 
       this.entries = this.processResponse(response.values);
       this.dataSource = this.entries;
       this.startCountdown();
+      this.displayLoader = false;
       
   })
   }
