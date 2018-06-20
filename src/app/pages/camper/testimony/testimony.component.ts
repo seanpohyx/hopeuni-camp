@@ -9,14 +9,18 @@ import { TestimonyService } from "../../../service/testimony.service";
 export class TestimonyComponent implements OnInit {
 
 	data:any
+  private displayLoader;
 
   constructor(
   	public testimonyService:TestimonyService
   ) { }
 
   ngOnInit() {
+    
+    this.displayLoader = true;
   	this.testimonyService.getSheet().subscribe(response => {
       this.data = JSON.stringify(response.values, null, 2);
+      this.displayLoader = false;
     })
   }
 

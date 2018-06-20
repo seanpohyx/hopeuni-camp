@@ -1,5 +1,8 @@
 <div class = 'red-color container separator' >
 		<h2> CAMP SCHEDULE </h2>
+		<div *ngIf="this.displayLoader" class="spinner-container">
+			<div class="loader"></div>
+		</div>
 		<ul id="timer">
 			<li>
 				<div style="position: relative;">
@@ -69,9 +72,4 @@
 				
 			</li>
 		</ul>
-		<!-- ul>
-			<li *ngFor = "let schedule of this.schedulelist">
-				{{schedule}}
-			</li>
-		</ul> -->
 </div>
