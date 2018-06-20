@@ -1,4 +1,4 @@
-# HopeuniCamp v2
+# HopeuniCamp
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.0.5. 
 
@@ -10,13 +10,45 @@ I'm by no means a pro in web development or anything, but I am willing to teach 
 
 Hey there! So if you're brand new and am not sure how to set it up, or what to do, feel free to ask! I am more than willing to help, but generally this should be the few steps you need to take to set up this project 
 
-1. clone this 
-  - `git clone https://github.com/jeremiah-ang/hopeuni-camp/`
-2. Install npm dependencies 
-  - `npm install`
-3. Serve it 
-  - `ng serve`
-4. View it in browser by going to `http://localhost:4200`
+1) Fork it - by clicking that fork button on top
+2) Clone your fork
+```bash
+mkdir forked && cd forked
+git clone <my forked repo>
+```
+
+3) Set up remote upstream
+```bash
+git remote add upstream https://github.com/jeremiah-ang/hopeuni-camp
+```
+
+4) run `npm install`
+5) create a new branch
+```bash
+git checkout -b feature/newFeature
+```
+6) Make your changes
+7) push to origin
+```bash
+git push -u origin feature/newFeature
+```
+8) create pull request by pressing the button on top
+9) Once merged, checkout to master
+```bash
+git checkout master
+```
+10) pull from upstream
+```bash
+git pull upstream master
+```
+11) push to origin
+```bash
+git push -u origin master
+```
+12) delete branches
+```bash
+git branch -d feature/newFeature && git push --delete origin feature/newFeature
+```
 
 ## Creating components/services
 
