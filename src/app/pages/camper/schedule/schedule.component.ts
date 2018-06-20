@@ -1,79 +1,59 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
 import { ScheduleService } from "../../../service/schedule.service";
 import { interval } from "rxjs"
+import { ScheduleCountdownComponent } from './schedule-countdown/schedule-countdown.component';
+import { ScheduleEntry } from '../../../model/ScheduleEntry.model';
 
 @Component({
   selector: 'app-schedule',
   templateUrl: './schedule.component.html',
   styleUrls: ['./schedule.component.scss']
 })
-export class ScheduleComponent implements OnInit {
+export class ScheduleComponent implements AfterViewInit {
 
-    private scheduleDisplayDate;
-    private schedulelist;
-    private hours;
-    private mins;
-    private secs;
-    private reminderNotes;
+  private scheduleDisplayDate;
+  private schedulelist;
+  private hours;
+  private mins;
+  private secs;
+  private reminderNotes;
 
-    header: any;
-    dataSource: any;
-    displayedColumns = ['day', 'time', 'event', 'info'];
-    entries: any;
+  header: any;
+  dataSource: ScheduleEntry[];
+  displayedColumns = ['day', 'time', 'event', 'info'];
+  entries: ScheduleEntry[];
 
-    private campDays = [0, 20, 21, 22]; // 1 based index
+  @ViewChild(ScheduleCountdownComponent) countdown;
 
   constructor(
     public schService:ScheduleService
   ) { }
 
-  ngOnInit() {
-    this.schService.getSheet().subscribe(response => {
-
-      this.entries = this.processResponse(response.values);
+  ngAfterViewInit() {
+    this.schService.getLatestEntries().subscribe(response => {
+      this.entries = this.sortEntries(response);
       this.dataSource = this.entries;
-      this.startCountdown();
-      
-  })
+      this.onExpired(null);
+    })
   }
 
-  processResponse(response) {
-    console.log(response);
-    const latestEntries = this.filterLatestEntries(response);
-    const sortedEntries = this.sortEntries(latestEntries);
-    console.log(sortedEntries);
-    return sortedEntries
-  }
-
-  filterLatestEntries(response) {
-    this.header = response[0];
-    const idIndex = this.getIdIndex(this.header);
-    const latestEntries = []
-    for (let i = 1; i < response.length; i++) {
-      if (latestEntries[response[i][idIndex]] == null) {
-        latestEntries[response[i][idIndex]] = this.newEntry(this.header, response[i]);
+  onExpired($event) {
+    if (this.entries) {
+      if ($event == this.entries[0] && this.entries.length > 1) {
+        this.entries.shift();
+        this.countdown.start(this.entries[0]);
+      } else if (this.entries.length > 1) {
+        this.countdown.start(this.entries[0]);
+      } else {
+        this.countdown.start();
       }
     }
-    latestEntries.shift();
-    return latestEntries;
   }
 
-  newEmptyEntry() {
-    return this.newEntry(this.header, ["To be updated", 3, 2359, 2359, "", 0]);
-  }
-
-  newEntry(header, response) {
-    const entry = {}
-    for (let i = 0; i < header.length; i++) {
-      entry[header[i]] = response[i];
-    }
-    return entry;
-  }
-
-  sortEntries(entries) {
+  sortEntries(entries: ScheduleEntry[]) {
     entries.sort((a, b) => {
-      if (+a.day < +b.day ||
-        +a.day === +b.day && +a['start time'] < +b['start time']) {
+      if (+a.getDay() < +b.getDay() ||
+        +a.getDay() === +b.getDay() && +a.getStartTime() < +b.getStartTime()) {
         return -1;
       } 
       return 1;
@@ -81,66 +61,6 @@ export class ScheduleComponent implements OnInit {
     return entries;
   }
 
-  startCountdown() {
-    let latestEntry = this.entries[0];
-    let countdownTo = this.newCampDate(latestEntry.day, latestEntry['start time']);
-    this.reminderNotes = latestEntry.info;
 
-    interval(1000).subscribe(n => {
-      var currentTime = new Date();
-      if(Math.round((countdownTo.getTime() - currentTime.getTime())/1000) <= 0){
-        latestEntry = this.getNextEvent();
-        countdownTo = this.newCampDate(latestEntry.day, latestEntry['start time']);
-      }
-
-      var countdowntimer = Math.round((countdownTo.getTime() - currentTime.getTime())/1000);
-      this.hours = Math.floor(countdowntimer/3600);
-      this.mins = Math.floor((countdowntimer % 3600)/60);
-      this.secs = Math.floor((countdowntimer % 60));
-    });
-  }
-
-  getIdIndex(header) {
-    for (let i = 0; i < header.length; i++) {
-      if (header[i] === "id") {
-        return i;
-      }
-    }
-    return 0;
-  }
-
-
-  getEventInDateandReminderFormat(eventForTheDay){
-
-    var tempArr = [];
-
-    for(var i=0; i<eventForTheDay.length; i++){
-      var event = eventForTheDay[i];
-
-      var days = (event[1] == 1) ? 20 : (event[1] == 2) ? 21 : 23;
-      var hours = event[2].substring(0, 2);
-      var mins = event[2].substring(2, 4);
-      tempArr.push(this.newEntry(new Date(2018, 6,  days, hours, mins), event[4])); //year, month, day, hr, mins
-    }
-
-    return tempArr;
-  }
-
-  newCampDate(day, time) {
-    const campDay = this.campDays[+day];
-    const hour = time.substring(0, 2);
-    const minute = time.substring(2, 4);
-    return new Date(2018, 6,  campDay, hour, minute);
-  }
-
-  getNextEvent() {
-    this.entries.shift();
-    if (this.entries.length === 0) {
-      this.entries.push(this.newEmptyEntry());
-    }
-    this.dataSource = this.entries;
-    return this.entries[0];
-
-  }
 
 }
