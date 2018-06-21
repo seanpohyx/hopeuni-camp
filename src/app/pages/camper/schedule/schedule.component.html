@@ -1,77 +1,32 @@
-<div class = 'red-color container separator' >
-		<h2> CAMP SCHEDULE </h2>
-		<ul id="timer">
-			<li>
-				<div style="position: relative;">
-					<ul>
-						<li>
-							<div>
-								<h1>{{this.hours}}</h1>
-								<p>hours</p>
-							</div>
-						</li>
-						<li>
-							<div>
-								<h1>{{this.mins}}</h1>
-								<p>minutes</p>
-							</div>
-						</li>
-						<li>
-							<div>
-								<h1>{{this.secs}}</h1>
-								<p>seconds</p>
-							</div>
-						</li>
-					</ul>
-				</div>
-			</li>
-			<li>
-				<p class="margin-top40">
-					Reminder:
-					{{this.reminderNotes}}
-				</p>
-			</li>
-		</ul>
-		<ul id="schedule">
-			<li>
+<mat-spinner class="spinner" style="position: absolute; left: calc(50% - 45px); magin: 10; z-index: 1000" *ngIf="this.displayLoader"></mat-spinner>
+<app-schedule-countdown (expired)="onExpired($event)"></app-schedule-countdown>   
+<table mat-table [dataSource]='dataSource' >
 
-				<table mat-table [dataSource]='dataSource'>
+  <!-- Day -->
+  <ng-container matColumnDef="day">
+    <th mat-header-cell *matHeaderCellDef> Day </th>
+    <td mat-cell *matCellDef="let entry"> {{ entry.getDay() }} </td>
+  </ng-container>
 
-				  <!-- Day -->
-				  <ng-container matColumnDef="day">
-				    <th mat-header-cell *matHeaderCellDef> Day </th>
-				    <td mat-cell *matCellDef="let entry"> {{ entry.day }} </td>
-				  </ng-container>
+  <!-- Time -->
+  <ng-container matColumnDef="time">
+    <th mat-header-cell *matHeaderCellDef> Time </th>
+    <td mat-cell *matCellDef="let entry"> {{ entry.getStartTime() }} - {{ entry.getEndTime() }} </td>
+  </ng-container>
 
-				  <!-- Time -->
-				  <ng-container matColumnDef="time">
-				    <th mat-header-cell *matHeaderCellDef> Time </th>
-				    <td mat-cell *matCellDef="let entry"> {{ entry['start time'] }} - {{ entry['end time'] }} </td>
-				  </ng-container>
+  <!-- Event -->
+  <ng-container matColumnDef="event">
+    <th mat-header-cell *matHeaderCellDef> Event </th>
+    <td mat-cell *matCellDef="let entry"> {{ entry.getDescription() }} </td>
+  </ng-container>
 
-				  <!-- Event -->
-				  <ng-container matColumnDef="event">
-				    <th mat-header-cell *matHeaderCellDef> Event </th>
-				    <td mat-cell *matCellDef="let entry"> {{ entry.event }} </td>
-				  </ng-container>
+  <!-- Info -->
+  <ng-container matColumnDef="info">
+    <th mat-header-cell *matHeaderCellDef> Info </th>
+    <td mat-cell *matCellDef="let entry"> {{ entry.getInfo() }} </td>
+  </ng-container>
 
-				  <!-- Info -->
-				  <ng-container matColumnDef="info">
-				    <th mat-header-cell *matHeaderCellDef> Info </th>
-				    <td mat-cell *matCellDef="let entry"> {{ entry.info }} </td>
-				  </ng-container>
-
-				  <!-- Declares what column and what rows to be displayed --> 
-				  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-				  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-
-				</table> 
-				
-			</li>
-		</ul>
-		<!-- ul>
-			<li *ngFor = "let schedule of this.schedulelist">
-				{{schedule}}
-			</li>
-		</ul> -->
-</div>
+  <!-- Declares what column and what rows to be displayed --> 
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table> 

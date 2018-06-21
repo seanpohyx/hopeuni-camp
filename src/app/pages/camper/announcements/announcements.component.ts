@@ -10,6 +10,7 @@ import { AnnouncementEntry } from "../../../model/AnnouncementEntry.model";
 export class AnnouncementsComponent implements OnInit {
   
   private announcementlist;
+  private displayLoader;
   
   constructor(
     public annoService:AnnouncementsService
@@ -17,8 +18,10 @@ export class AnnouncementsComponent implements OnInit {
 
   ngOnInit() {
 
+    this.displayLoader = true;
     this.annoService.getLatestEntries(5).subscribe(response => {
       this.announcementlist = response;
+      this.displayLoader = false;
     })
   }
 

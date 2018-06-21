@@ -1,8 +1,8 @@
-<div class = 'red-color container separator' >
-		<h2> ANNOUNCEMENTS </h2>
-		<ul>
-			<li *ngFor = "let anno of this.announcementlist">
-				<p>{{anno.getDescription()}}</p>
-			</li>
-		</ul>
-</div>
+<mat-spinner class="spinner" *ngIf="this.displayLoader"></mat-spinner>
+<h1 style="text-align: center"> Announcements </h1>
+<mat-list dense role="list">
+  <div *ngFor = "let anno of this.announcementlist">
+    <mat-list-item role="listitem">{{anno.getDescription()}}</mat-list-item>
+    <mat-divider></mat-divider>
+  </div>
+</mat-list>

@@ -1,4 +1,5 @@
 <div>
 	<h1> Feedback </h1>
+	<mat-progress-spinner *ngIf="this.displayLoader" mode="indeterminate" class="spinner"></mat-progress-spinner>
 	<pre class = "json-block"> {{ data }} </pre>
 </div>

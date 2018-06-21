@@ -9,14 +9,17 @@ import { FeedbackService } from "../../../service/feedback.service";
 export class FeedbackComponent implements OnInit {
 
 	data:any;
+  private displayLoader;
 
   constructor(
   	public feedbackService:FeedbackService
   ) { }
 
   ngOnInit() {
+    this.displayLoader = true;
   	this.feedbackService.getSheet().subscribe(response => {
       this.data = JSON.stringify(response.values, null, 2);
+      this.displayLoader = false;
     })
   }
 
