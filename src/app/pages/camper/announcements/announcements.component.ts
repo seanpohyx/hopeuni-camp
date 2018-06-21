@@ -21,7 +21,7 @@ export class AnnouncementsComponent implements OnInit {
     this.displayLoader = true;
     this.annoService.getLatestEntries(5).subscribe(response => {
       this.announcementlist = response;
-      this.displayLoader = false;
+      this.displayLoader = false; 
     })
   }
 

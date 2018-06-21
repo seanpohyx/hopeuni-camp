@@ -26,7 +26,7 @@ export class ScheduleComponent implements AfterViewInit {
   ) { }
 
   ngOnInit(){
-    this.displayLoader = true;
+    this.displayLoader = true; 
   }
 
   ngAfterViewInit() {

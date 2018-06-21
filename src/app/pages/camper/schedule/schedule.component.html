@@ -3,7 +3,7 @@
 <table mat-table [dataSource]='dataSource' >
 
   <!-- Day -->
-  <ng-container matColumnDef="day">
+  <ng-container matColumnDef="day"> 
     <th mat-header-cell *matHeaderCellDef> Day </th>
     <td mat-cell *matCellDef="let entry"> {{ entry.getDay() }} </td>
   </ng-container>

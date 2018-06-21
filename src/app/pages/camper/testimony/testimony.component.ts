@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { TestimonyService } from "../../../service/testimony.service";
 
-@Component({
+@Component({ 
   selector: 'app-testimony',
   templateUrl: './testimony.component.html',
   styleUrls: ['./testimony.component.scss']
@@ -10,7 +10,7 @@ export class TestimonyComponent implements OnInit {
 
 	data:any
   private displayLoader;
-
+ 
   constructor(
   	public testimonyService:TestimonyService
   ) { }

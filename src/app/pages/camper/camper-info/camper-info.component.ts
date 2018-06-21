@@ -20,7 +20,7 @@ export class CamperInfoComponent implements OnInit {
     this.displayLoader = true;
   	this.camperInfoService.getSheet().subscribe(response => {
       this.data = JSON.stringify(response.values, null, 2);
-      this.displayLoader = false;
+      this.displayLoader = false; 
     })
   }
 

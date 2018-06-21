@@ -19,7 +19,7 @@ export class FeedbackComponent implements OnInit {
     this.displayLoader = true;
   	this.feedbackService.getSheet().subscribe(response => {
       this.data = JSON.stringify(response.values, null, 2);
-      this.displayLoader = false;
+      this.displayLoader = false; 
     })
   }
 
