@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Rx';
 import { HttpClient } from '@angular/common/http';
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -9,7 +10,7 @@ import { HttpClient } from '@angular/common/http';
 export class GoogleOAuthService {
   endpoint = "https://accounts.google.com/o/oauth2/v2/auth";
   clientId = "947394714759-dfj9erkpjkc7ovptjs177gmlpfb0nb1d.apps.googleusercontent.com";
-  redirectUri = "http://localhost:4201/admin/redirect";
+  redirectUri = environment.redirectUri;
   responseType = "token";
   scopes = Array.prototype.join.call([
     "https://www.googleapis.com/auth/spreadsheets"
