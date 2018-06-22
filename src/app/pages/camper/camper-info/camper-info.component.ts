@@ -9,7 +9,7 @@ import { CamperInfoService } from "../../../service/camper-info.service";
 export class CamperInfoComponent implements OnInit {
 
 	data:any;
-  private displayLoader;
+  displayLoader:boolean;
 
   constructor(
   	public camperInfoService:CamperInfoService
