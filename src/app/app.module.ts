@@ -33,6 +33,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatCardModule } from '@angular/material/card';
 import { MatListModule } from '@angular/material/list';
 import { MatDividerModule } from '@angular/material/divider';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
 
 @NgModule({
@@ -72,8 +73,9 @@ import { NotFoundComponent } from './pages/not-found/not-found.component';
     MatFormFieldModule,
     MatInputModule,
     MatCardModule,
-    MatListModule,
-    MatDividerModule
+    MatListModule, 
+    MatDividerModule,
+    MatProgressSpinnerModule
 
   ],
   providers: [],

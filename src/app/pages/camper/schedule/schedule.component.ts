@@ -14,7 +14,6 @@ export class ScheduleComponent implements AfterViewInit {
   schedulelist: ScheduleEntry[];
   displayLoader: boolean;
 
-
   header: any;
   dataSource: ScheduleEntry[];
   displayedColumns = ['day', 'time', 'event', 'info'];
@@ -26,9 +25,12 @@ export class ScheduleComponent implements AfterViewInit {
     public schService:ScheduleService
   ) { }
 
+  ngOnInit(){
+    this.displayLoader = true; 
+  }
+
   ngAfterViewInit() {
-    this.displayLoader = true;
-    this.schService.getLatestEntries().subscribe(response => {
+      this.schService.getLatestEntries().subscribe(response => {
       this.entries = this.sortEntries(response);
       this.dataSource = this.entries;
       this.onExpired(null);

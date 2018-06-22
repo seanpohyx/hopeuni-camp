@@ -1,10 +1,8 @@
-<div *ngIf="displayLoader" class="spinner-container">
-	<div class="loader"></div>
-</div>
+<mat-spinner class="spinner" *ngIf="displayLoader"></mat-spinner>
 <h1 style="text-align: center"> Announcements </h1>
 <mat-list dense role="list">
   <div *ngFor = "let anno of this.announcementlist">
     <mat-list-item role="listitem">{{anno.getDescription()}}</mat-list-item>
-    <mat-divider></mat-divider>
+    <mat-divider></mat-divider> 
   </div>
 </mat-list>

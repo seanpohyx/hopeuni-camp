@@ -1,11 +1,9 @@
-<div *ngIf="displayLoader" class="spinner-container">
-	<div class="loader"></div>
-</div>
+<mat-spinner class="spinner" *ngIf="displayLoader"></mat-spinner>
 <app-schedule-countdown (expired)="onExpired($event)"></app-schedule-countdown>   
 <table mat-table [dataSource]='dataSource' >
 
   <!-- Day -->
-  <ng-container matColumnDef="day">
+  <ng-container matColumnDef="day"> 
     <th mat-header-cell *matHeaderCellDef> Day </th>
     <td mat-cell *matCellDef="let entry"> {{ entry.getDay() }} </td>
   </ng-container>
