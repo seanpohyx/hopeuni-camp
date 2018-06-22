@@ -33,6 +33,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatCardModule } from '@angular/material/card';
 import { MatListModule } from '@angular/material/list';
 import { MatDividerModule } from '@angular/material/divider';
+import { NotFoundComponent } from './pages/not-found/not-found.component';
 
 @NgModule({
   declarations: [
@@ -51,7 +52,8 @@ import { MatDividerModule } from '@angular/material/divider';
     HomeAdminComponent,
     LoginAdminComponent,
     RedirectAdminComponent,
-    ScheduleCountdownComponent
+    ScheduleCountdownComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,

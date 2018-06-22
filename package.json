@@ -4,7 +4,8 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve --port 4201 --open",
-    "build": "ng build",
+    "build": "ng build --prod --base-href /hopeuni-camp/",
+    "deploy": "npm run build && git subtree push --prefix dist origin gh-pages",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"
