@@ -9,8 +9,8 @@ import { AnnouncementEntry } from "../../../model/AnnouncementEntry.model";
 })
 export class AnnouncementsComponent implements OnInit {
   
-  private announcementlist;
-  private displayLoader;
+  announcementlist: AnnouncementEntry[];
+  displayLoader: boolean;
   
   constructor(
     public annoService:AnnouncementsService
