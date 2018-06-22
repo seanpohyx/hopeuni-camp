@@ -34,6 +34,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatListModule } from '@angular/material/list';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { NotFoundComponent } from './pages/not-found/not-found.component';
 
 @NgModule({
   declarations: [
@@ -52,7 +53,8 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
     HomeAdminComponent,
     LoginAdminComponent,
     RedirectAdminComponent,
-    ScheduleCountdownComponent
+    ScheduleCountdownComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,

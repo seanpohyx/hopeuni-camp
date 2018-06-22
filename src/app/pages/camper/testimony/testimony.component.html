@@ -1,8 +1,5 @@
 <div>
-	<mat-progress-spinner *ngIf="this.displayLoader" mode="indeterminate" class="spinner"></mat-progress-spinner>
+  <mat-progress-spinner *ngIf="displayLoader" mode="indeterminate" class="spinner"></mat-progress-spinner>
 	<h1> Testimony </h1> 
-	<div *ngIf="this.displayLoader" class="spinner-container">
-		<div class="loader"></div>
-	</div>
 	<pre class = "json-block"> {{ data }} </pre>
 </div>

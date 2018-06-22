@@ -9,7 +9,7 @@ import { FeedbackService } from "../../../service/feedback.service";
 export class FeedbackComponent implements OnInit {
 
 	data:any;
-  private displayLoader;
+  displayLoader:boolean;
 
   constructor(
   	public feedbackService:FeedbackService

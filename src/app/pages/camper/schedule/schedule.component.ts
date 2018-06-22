@@ -11,8 +11,8 @@ import { ScheduleEntry } from '../../../model/ScheduleEntry.model';
 })
 export class ScheduleComponent implements AfterViewInit {
 
-  private schedulelist;
-  private displayLoader;
+  schedulelist: ScheduleEntry[];
+  displayLoader: boolean;
 
   header: any;
   dataSource: ScheduleEntry[];

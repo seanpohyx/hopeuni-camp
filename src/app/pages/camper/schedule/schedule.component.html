@@ -1,4 +1,4 @@
-<mat-spinner class="spinner" *ngIf="this.displayLoader"></mat-spinner>
+<mat-spinner class="spinner" *ngIf="displayLoader"></mat-spinner>
 <app-schedule-countdown (expired)="onExpired($event)"></app-schedule-countdown>   
 <table mat-table [dataSource]='dataSource' >
 

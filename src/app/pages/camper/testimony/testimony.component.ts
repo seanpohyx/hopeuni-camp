@@ -9,8 +9,8 @@ import { TestimonyService } from "../../../service/testimony.service";
 export class TestimonyComponent implements OnInit {
 
 	data:any
-  private displayLoader;
- 
+  displayLoader:boolean;
+  
   constructor(
   	public testimonyService:TestimonyService
   ) { }
