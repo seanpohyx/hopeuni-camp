@@ -5,7 +5,7 @@
     "ng": "ng",
     "start": "ng serve --port 4201 --open",
     "build": "ng build --prod --base-href /hopeuni-camp/",
-    "deploy": "npm run build && git add dist &&  git commit -m \"deploy\" && git subtree push --prefix dist origin gh-pages",
+    "deploy": "npm run build && cd dist && cp index.html 404.html && gh-pages -d .",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"
@@ -38,6 +38,7 @@
     "@types/jasminewd2": "~2.0.3",
     "@types/node": "~8.9.4",
     "codelyzer": "~4.2.1",
+    "gh-pages": "^1.2.0",
     "googleapis": "^32.0.0",
     "jasmine-core": "~2.99.1",
     "jasmine-spec-reporter": "~4.2.1",
