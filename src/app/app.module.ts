@@ -34,7 +34,9 @@ import { MatCardModule } from '@angular/material/card';
 import { MatListModule } from '@angular/material/list';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatSelectModule } from '@angular/material/select';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
+import { TimerAdminComponent } from './pages/admin/timer-admin/timer-admin.component';
 
 @NgModule({
   declarations: [
@@ -54,7 +56,8 @@ import { NotFoundComponent } from './pages/not-found/not-found.component';
     LoginAdminComponent,
     RedirectAdminComponent,
     ScheduleCountdownComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    TimerAdminComponent
   ],
   imports: [
     BrowserModule,
@@ -71,6 +74,7 @@ import { NotFoundComponent } from './pages/not-found/not-found.component';
     MatExpansionModule,
     BrowserAnimationsModule,
     MatFormFieldModule,
+    MatSelectModule,
     MatInputModule,
     MatCardModule,
     MatListModule, 

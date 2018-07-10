@@ -1,0 +1,37 @@
+<form>
+  <h1> Timer </h1>
+  <h3>Count Down Timer:</h3>
+  <mat-form-field>
+    <textarea matInput #timerMins placeholder="Mins"></textarea>
+  </mat-form-field>
+
+  <button mat-raised-button (click)="onAdd(timerMins)" style="margin-left: 20px;">Start</button>
+
+  <h3>Count Down to: (Time)</h3>
+  <mat-form-field>
+	  <mat-select placeholder="Camp Day" #countDowntoDay>
+	    <mat-option *ngFor="let day of dropdownListDay" [value]="day.value">
+	      {{day.viewValue}}
+	    </mat-option>
+	  </mat-select>
+  </mat-form-field>
+  <br>
+  <mat-form-field>
+	  <mat-select placeholder="24 Hour" #countDowntoHour>
+	    <mat-option *ngFor="let hour of dropdownListHour" [value]="hour">
+	      {{hour}}
+	    </mat-option>
+	  </mat-select>
+  </mat-form-field>
+  <br>
+  <mat-form-field>
+	  <mat-select placeholder="Minutes" #countDowntoMins>
+	    <mat-option *ngFor="let mins of dropdownListMins" [value]="mins">
+	      {{mins}}
+	    </mat-option>
+	  </mat-select>
+  </mat-form-field>
+
+  <button mat-raised-button (click)="onStartCountDownTo(countDowntoDay, countDowntoHour, countDowntoMins)" style="margin-left: 20px;">Start</button>
+</form>
+

@@ -43,7 +43,13 @@ export class AnnouncementsAdminComponent implements OnInit {
 	onAdd(description: any) {
 		const nextId = (this.dataSource[0]) ? this.dataSource[0].getId() + 1 : 1;
 		const updates = [new AnnouncementEntry(nextId, description.value)];
+
+		console.log(this.dataSource.length);
+		console.log(this.dataSource);
+		console.log(this.dataSource.length == this.limit);
+
 		if (this.dataSource.length == this.limit) {
+			console.log("enter");
 			const lastEntry = this.dataSource[this.limit - 1];
 			lastEntry.delete();
 			updates.push(lastEntry);
