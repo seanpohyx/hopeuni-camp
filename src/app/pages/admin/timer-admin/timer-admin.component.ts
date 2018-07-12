@@ -47,7 +47,11 @@ export class TimerAdminComponent implements OnInit {
 
 	onStartCountDownTo(day: any, hour: any, mins: any, secs: any){
 
-		let valueHolder = {};
+		let valueHolder = {
+			day: 0,
+			hour: 0,
+			mins: 0
+		};
 
 		valueHolder.day = (day.value === undefined)?day:day.value;
 		valueHolder.hour = (hour.value === undefined)?hour:hour.value;
