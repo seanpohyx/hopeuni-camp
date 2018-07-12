@@ -10,7 +10,7 @@ import { TimerEntry } from "../../../model/TimerEntry.model";
 export class TimerAdminComponent implements OnInit {
 
   dataSource = [];
-  limit = 5;
+  limit = 1;
   dropdownListDay = [];
   dropdownListHour = [];
   dropdownListMins = [];
@@ -41,23 +41,20 @@ export class TimerAdminComponent implements OnInit {
 		const nextId = (this.dataSource[0]) ? this.dataSource[0].getId() + 1 : 1;
 		var h = new Date();
 		var d = new Date(h.getTime() + mins.value*60000);
-		const updates = [new TimerEntry(nextId, d.getMonth(), d.getDay(), d.getHours(), d.getMinutes(), d.getSeconds(), 0)];
-
-		if (this.dataSource.length == this.limit) {
-			const lastEntry = this.dataSource[this.limit - 1];
-			lastEntry.delete();
-			updates.push(lastEntry);
-		}
-
-		this.timerService.multiAppendSheet(updates).subscribe(response => {
-			this.loadSheet();
-		})
+		
+		this.onStartCountDownTo(d.getDate(), d.getHours(), d.getMinutes(), d.getSeconds());
 	}
 
-	onStartCountDownTo(day: any, hour: any, mins: any){
+	onStartCountDownTo(day: any, hour: any, mins: any, secs: any){
+
+		let valueHolder = {};
+
+		valueHolder.day = (day.value === undefined)?day:day.value;
+		valueHolder.hour = (hour.value === undefined)?hour:hour.value;
+		valueHolder.mins = (mins.value === undefined)?mins:mins.value;
 
 		const nextId = (this.dataSource[0]) ? this.dataSource[0].getId() + 1 : 1;
-		const updates = [new TimerEntry(nextId, 6, day.value, hour.value, mins.value, 0, 0)];
+		const updates = [new TimerEntry(nextId, 6, valueHolder.day, valueHolder.hour, valueHolder.mins, secs, 0)];
 
 		if (this.dataSource.length == this.limit) {
 			const lastEntry = this.dataSource[this.limit - 1];

@@ -45,6 +45,6 @@ export class TimerEntry extends IndexedObject {
 	}
 
 	toSheet(): any[] {
-		return [this.getId(), this.month, this.day, this.hour, this.mins, this.secs, 0];
+		return [this.getId(), this.month, this.day, this.hour, this.mins, this.secs, this.getDeleted()];
 	}
 }
